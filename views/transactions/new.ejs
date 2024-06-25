@@ -8,7 +8,7 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add New Transaction</h1>
-    <form action="" method="">
+    <form action="/users/<%= user._id %>/transactions" method="post">
       <!-- Date -->
       <label for="date">Date</label>
       <input type="date" name="date" id="date" required />
