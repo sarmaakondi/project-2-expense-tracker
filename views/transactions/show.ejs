@@ -13,6 +13,13 @@
       <li><%= transaction.category %></li>
       <li><%= transaction.note %></li>
     </ul>
+
+    <!-- Edit Transaction -->
+    <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit">
+      Edit
+    </a>
+
+    <!-- Delete Transaction -->
     <form
       action="/users/<%= user._id %>/transactions/<%= transaction._id %>?_method=DELETE"
       method="post"

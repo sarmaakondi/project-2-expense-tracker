@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Transaction</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit Transaction</h1>
+    <form action="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit?_method=PUT" method="post">
+      <!-- Date -->
+      <label for="date">Date</label>
+      <input
+        type="date"
+        name="date"
+        id="date"
+        required
+        value="<%= new Date(transaction.date).toISOString().slice(0, 10) %>"
+      />
+
+      <!-- Amount -->
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        name="amount"
+        id="amount"
+        min="0"
+        max="10000"
+        required
+        value="<%= transaction.amount %>"
+      />
+
+      <!-- Category -->
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="groceries" <%= transaction.category === "groceries" ? "selected": "" %>>Groceries</option>
+        <option value="utilities" <%= transaction.category === "utilities" ? "selected": "" %>>Utilities</option>
+        <option value="entertainment" <%= transaction.category === "entertainment" ? "selected": "" %>>Entertainment</option>
+        <option value="clothing" <%= transaction.category === "clothing" ? "selected": "" %>>Clothing</option>
+        <option value="gifts" <%= transaction.category === "gifts" ? "selected": "" %>>Gifts</option>
+        <option value="misc" <%= transaction.category === "misc" ? "selected": "" %>>Misc</option>
+      </select>
+
+      <!-- Note -->
+      <label for="note">Note</label>
+      <textarea name="note" id="note" maxlength="200">
+<%= transaction.note %></textarea
+      >
+
+      <!-- Submit Button -->
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>

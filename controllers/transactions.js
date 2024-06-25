@@ -62,4 +62,15 @@ router.delete("/:transactionId", async (req, res) => {
   }
 });
 
+// Route to display the transaction edit form
+router.get("/:transactionId/edit", async (req, res) => {
+  try {
+    const transaction = await Transaction.findById(req.params.transactionId);
+    res.render("transactions/edit.ejs", { transaction });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;
