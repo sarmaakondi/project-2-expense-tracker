@@ -1,12 +1,27 @@
 {
-  "name": "project-2-expense-tracker",
+  "name": "men-stack-session-auth-template",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template"
+  },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-mongo": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.4.3",
+    "morgan": "^1.10.0"
+  }
 }
