@@ -51,4 +51,15 @@ router.get("/:transactionId", async (req, res) => {
   }
 });
 
+// Route to handle delete transaction feature
+router.delete("/:transactionId", async (req, res) => {
+  try {
+    await Transaction.findByIdAndDelete(req.params.transactionId);
+    res.redirect(`/users/${req.session.user._id}/transactions`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;

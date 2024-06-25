@@ -13,5 +13,11 @@
       <li><%= transaction.category %></li>
       <li><%= transaction.note %></li>
     </ul>
+    <form
+      action="/users/<%= user._id %>/transactions/<%= transaction._id %>?_method=DELETE"
+      method="post"
+    >
+      <button type="submit">Delete</button>
+    </form>
   </body>
 </html>
