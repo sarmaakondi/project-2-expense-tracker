@@ -11,10 +11,12 @@
     <a href="/users/<%= user._id %>/transactions/new">Add Transaction</a>
     <ul>
       <% transactions.forEach((transaction) => { %>
-      <li>
-        <%= transaction.date %> | <%= transaction.amount %> | <%=
-        transaction.category %> | <%= transaction.note %>
-      </li>
+      <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
+        <li>
+          <%= transaction.date %> | <%= transaction.amount %> | <%=
+          transaction.category %> | <%= transaction.note %>
+        </li>
+      </a>
       <% }) %>
     </ul>
   </body>

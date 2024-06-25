@@ -40,4 +40,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Route to view individual transaction
+router.get("/:transactionId", async (req, res) => {
+  try {
+    const transaction = await Transaction.findById(req.params.transactionId);
+    res.render("transactions/show.ejs", { transaction });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;
