@@ -7,6 +7,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
 const authController = require("./controllers/auth.js");
+const transactionsController = require("./controllers/transactions.js");
 
 const port = process.env.PORT ? process.env.PORT : 3000;
 
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authController);
+app.use("/users/transactions", transactionsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
