@@ -3,12 +3,16 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const Transaction = require("../models/transaction");
+const { route } = require("./auth");
 
 // Routes
 // Route to transactions index page
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    res.render("transactions/index.ejs");
+    const allTransactions = await Transaction.find({
+      createdBy: req.session.user._id,
+    });
+    res.render("transactions/index.ejs", { transactions: allTransactions });
   } catch (error) {
     console.log(error);
     res.redirect("/");
@@ -28,7 +32,7 @@ router.post("/", async (req, res) => {
       ...req.body,
       createdBy: currentUser._id,
     };
-    const newTransaction = await Transaction.create(newTransactionData);
+    await Transaction.create(newTransactionData);
     res.redirect(`/users/${currentUser._id}/transactions`);
   } catch (error) {
     console.log(error);
