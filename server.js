@@ -6,6 +6,9 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
+const isLoggedIn = require("./middleware/is-logged-in.js");
+const passUserToViews = require("./middleware/pass-user-to-views.js");
+
 const authController = require("./controllers/auth.js");
 const transactionsController = require("./controllers/transactions.js");
 
@@ -29,15 +32,19 @@ app.use(
     }),
   })
 );
+app.use(passUserToViews);
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", {
-    user: req.session.user,
-  });
+  if (req.session.user) {
+    res.redirect(`/users/${req.session.user._id}/transactions`);
+  } else {
+    res.render("index.ejs");
+  }
 });
 
 app.use("/auth", authController);
-app.use("/users/transactions", transactionsController);
+app.use(isLoggedIn);
+app.use("/users/:userId/transactions", transactionsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
