@@ -73,4 +73,19 @@ router.get("/:transactionId/edit", async (req, res) => {
   }
 });
 
+// Route to update the transaction details provided by the user
+router.put("/:transactionId", async (req, res) => {
+  try {
+    const transaction = await Transaction.findById(req.params.transactionId);
+    transaction.set(req.body);
+    await transaction.save();
+    res.redirect(
+      `/users/${req.session.user._id}/transactions/${req.params.transactionId}`
+    );
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;
