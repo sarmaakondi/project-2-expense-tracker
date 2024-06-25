@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Transaction</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add New Transaction</h1>
+    <form action="" method="">
+      <!-- Date -->
+      <label for="date">Date</label>
+      <input type="date" name="date" id="date" required />
+
+      <!-- Amount -->
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        name="amount"
+        id="amount"
+        min="0"
+        max="10000"
+        required
+      />
+
+      <!-- Category -->
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="groceries">Groceries</option>
+        <option value="utilities">Utilities</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="clothing">Clothing</option>
+        <option value="gifts">Gifts</option>
+        <option value="misc">Misc</option>
+      </select>
+
+      <!-- Note -->
+      <label for="note">Note</label>
+      <textarea name="note" id="note" maxlength="200"></textarea>
+
+      <!-- Submit Button -->
+      <button type="submit">Add Transaction</button>
+    </form>
+  </body>
+</html>

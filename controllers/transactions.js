@@ -13,4 +13,9 @@ router.get("/", (req, res) => {
   }
 });
 
+// Display for to create new transaction
+router.get("/new", async (req, res) => {
+  res.render("transactions/new.ejs");
+});
+
 module.exports = router;
