@@ -2,25 +2,30 @@
 
 <body class="parent-container">
   <div class="child-container sign-in">
-    <div class="signin-nav">
-      <h1 class="signin-title">Sign In</h1>
-      <a href="/">Home</a>
+    <div class="content">
+      <div>
+        <img src="/img/sign-in.png" />
+      </div>
+
+      <div>
+        <div class="signin-nav">
+          <h1 class="signin-title">Sign In</h1>
+          <a href="/">Home</a>
+        </div>
+        <form action="/auth/sign-in" method="POST">
+          <div class="form-field">
+            <label for="username">Username:</label>
+            <small>required</small>
+            <input type="text" name="username" id="username" required />
+          </div>
+          <div class="form-field">
+            <label for="password">Password:</label>
+            <small>required</small>
+            <input type="password" name="password" id="password" required />
+          </div>
+          <button id="signin-btn" type="submit">Sign in</button>
+        </form>
+      </div>
     </div>
-
-    <form action="/auth/sign-in" method="POST">
-      <div class="form-field">
-        <label for="username">Username:</label>
-        <small>required</small>
-        <input type="text" name="username" id="username" required />
-      </div>
-
-      <div class="form-field">
-        <label for="password">Password:</label>
-        <small>required</small>
-        <input type="password" name="password" id="password" required />
-      </div>
-
-      <button id="signin-btn" type="submit">Sign in</button>
-    </form>
   </div>
 </body>

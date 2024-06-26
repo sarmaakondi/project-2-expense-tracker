@@ -28,7 +28,12 @@ button:focus {
   align-items: center;
   justify-content: space-evenly;
   width: 900px;
-  height: 50%;
+  height: 65%;
+}
+.content {
+  display: flex;
+  align-items: center;
+  gap: 120px;
 }
 
 .title {
