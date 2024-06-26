@@ -1,19 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
-  </head>
-  <body>
-    <%- include('../partials/_navbar.ejs') %>
-    <h1>Sign in</h1>
+<%- include('../partials/_base.ejs', {title: "Home"}) %>
+
+<body class="parent-container">
+  <div class="child-container sign-in">
+    <div class="signin-nav">
+      <h1 class="signin-title">Sign In</h1>
+      <a href="/">Home</a>
+    </div>
+
     <form action="/auth/sign-in" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" required />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" required />
-      <button type="submit">Sign in</button>
+      <div class="form-field">
+        <label for="username">Username:</label>
+        <small>required</small>
+        <input type="text" name="username" id="username" required />
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password:</label>
+        <small>required</small>
+        <input type="password" name="password" id="password" required />
+      </div>
+
+      <button id="signin-btn" type="submit">Sign in</button>
     </form>
-  </body>
-</html>
+  </div>
+</body>

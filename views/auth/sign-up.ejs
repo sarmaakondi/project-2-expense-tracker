@@ -1,9 +1,12 @@
 <%- include('../partials/_base.ejs', {title: "Home"}) %>
 
 <body class="parent-container">
-  <!-- <%- include('../partials/_navbar.ejs') %> -->
   <div class="child-container sign-up">
-    <h1 class="signup-title">Create new account!</h1>
+    <div class="signup-nav">
+      <h1 class="signup-title">Sign Up</h1>
+      <a href="/">Home</a>
+    </div>
+
     <form action="/auth/sign-up" method="POST">
       <div class="form-field">
         <label for="username">Username:</label>
