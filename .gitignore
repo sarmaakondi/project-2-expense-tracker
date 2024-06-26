@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node
 
+# Mock data related files
+MOCK_DATA.json
+populate-mock-data.js
+
 ### macOS ###
 # General
 .DS_Store

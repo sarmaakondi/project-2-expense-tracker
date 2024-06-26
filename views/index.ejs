@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
-  </head>
-  <body>
-    <%- include('./partials/_navbar.ejs') %>
-    <h1>Expense Tracker</h1>
-    <p>Know where your money goes.</p>
-  </body>
-</html>
+<%- include('./partials/_base.ejs', {title: "Home"}) %>
+<body class="parent-container">
+  <div class="child-container">
+    <div class="header">
+      <h1 class="title">Expen<span id="dollar">$</span>e Tracker</h1>
+      <p class="subtitle">Know where your money goes.</p>
+      <nav><%- include('./partials/_navbar.ejs') %></nav>
+    </div>
+    <img
+      src="/img/home-page-image.png"
+      alt="An image of calculator and money denoting tracking expenses"
+    />
+  </div>
+</body>
