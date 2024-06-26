@@ -60,9 +60,59 @@ nav a {
   border-radius: 8px;
   color: #fff;
   outline: none;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.8);
   transition: all 0.3s;
 }
 
 nav a:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.sign-up {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-title {
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+form,
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  margin-bottom: 12px;
+  min-width: 250px;
+}
+
+.form-field input {
+  font-family: inherit;
+  padding: 4px;
+  min-height: 36px;
+}
+
+.form-field small {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+#signup-btn {
+  cursor: pointer;
+  background-color: rgb(106, 90, 205);
+  color: #fff;
+  font-family: inherit;
+  font-size: 18px;
+  margin-top: 12px;
+  min-height: 40px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.8);
+}
+
+#signup-btn:active {
+  transform: scale(0.98);
 }
