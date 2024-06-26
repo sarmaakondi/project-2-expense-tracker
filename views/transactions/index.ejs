@@ -27,14 +27,31 @@
     <!-- All Transactions -->
     <div class="transactions-container">
       <h1>Dashboard</h1>
-      <p>All Transactions</p>
-      <ul>
-        <% transactions.forEach((transaction) => { %>
-        <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
-          <li><%= transaction.category %> | <%= transaction.amount %></li>
-        </a>
-        <% }) %>
-      </ul>
+      <div class="transactions-list">
+        <h3>All Transactions</h3>
+        <ul>
+          <% let previousDate = null %>
+          <!-- loop through and display the required fields -->
+          <% transactions.forEach((transaction) => { %>
+          <!-- store the transaction date in readable format -->
+          <% const currentDate = new
+          Date(transaction.date).toISOString().slice(0, 10) %>
+          <!-- display date -->
+          <% if (currentDate !== previousDate) { %>
+          <li class="transaction-date"><%= currentDate %></li>
+          <% previousDate = currentDate %> <% } %>
+          <!-- display category and amount spend -->
+          <div class="transaction-row">
+            <li>
+              <i class="fa-solid fa-wallet wallet"></i>
+              <%= transaction.category[0].toUpperCase() +
+              transaction.category.slice(1)%>
+            </li>
+            <li>$<%= transaction.amount %></li>
+          </div>
+          <% }) %>
+        </ul>
+      </div>
     </div>
 
     <div class="transaction-details">

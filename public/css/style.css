@@ -6,7 +6,9 @@
   padding: 0;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   font-weight: 500;
 }
 
@@ -214,7 +216,7 @@ form,
 }
 
 .dashboard-summary > div:first-child {
-  width: 30%;
+  width: 40%;
 }
 
 .dashboard-summary li {
@@ -241,7 +243,7 @@ form,
   height: 60%;
 }
 
-.transactions-container,
+.transactions-list,
 .categories-container,
 .chart-container {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -249,12 +251,54 @@ form,
   border-radius: 12px;
 }
 
-.transactions-container,
-.categories-container {
-  margin-top: 24px;
+.transactions-container {
+  margin-left: 12px;
+  margin-bottom: 16px;
 }
 
-.transactions-container,
+.transactions-list {
+  overflow-y: auto;
+  margin-top: 18px;
+  height: 85%;
+}
+
+.transactions-list h3 {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+}
+
+.categories-container {
+  margin-top: 64px;
+}
+
 .chart-container {
-  margin-bottom: 24px;
+  margin-bottom: 64px;
+}
+
+.chart-container,
+.categories-container {
+  margin-right: 12px;
+}
+
+.transaction-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 8px;
+}
+
+.transaction-date {
+  width: 50%;
+  margin: 12px auto;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wallet {
+  padding-right: 4px;
+  color: rgb(112, 111, 111);
+  font-size: 18px;
 }
