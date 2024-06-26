@@ -1,11 +1,16 @@
 <%- include('../partials/_base.ejs', {title: "Dashboard"}) %>
 
 <body class="dashboard-parent">
-  <!-- <%- include('../partials/_navbar.ejs') %> -->
-
   <div class="dashboard-navbar">
     <ul>
       <li><i class="fa-solid fa-table"></i></li>
+      <li>
+        <a
+          id="add-transaction-link"
+          href="/users/<%= user._id %>/transactions/new"
+          ><i class="fa-solid fa-square-plus"></i
+        ></a>
+      </li>
       <li><i class="fa-solid fa-calendar"></i></li>
       <li><i class="fa-solid fa-database"></i></li>
       <li><i class="fa-solid fa-user"></i></li>
@@ -19,14 +24,24 @@
   </div>
 
   <div class="dashboard-summary">
-    <h1>Dashboard</h1>
-    <a href="/users/<%= user._id %>/transactions/new">Add Transaction</a>
-    <ul>
-      <% transactions.forEach((transaction) => { %>
-      <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
-        <li><%= transaction.category %> | <%= transaction.amount %></li>
-      </a>
-      <% }) %>
-    </ul>
+    <!-- All Transactions -->
+    <div class="transactions-container">
+      <h1>Dashboard</h1>
+      <p>All Transactions</p>
+      <ul>
+        <% transactions.forEach((transaction) => { %>
+        <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
+          <li><%= transaction.category %> | <%= transaction.amount %></li>
+        </a>
+        <% }) %>
+      </ul>
+    </div>
+
+    <div class="transaction-details">
+      <!-- Expense Categories -->
+      <div class="categories-container">Categories</div>
+      <!-- Visualization -->
+      <div class="chart-container">Chart</div>
+    </div>
   </div>
 </body>

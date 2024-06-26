@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+h1 {
+  font-weight: 500;
+}
+
 a:focus,
 input:focus,
 button:focus {
@@ -28,7 +32,7 @@ button:focus {
   align-items: center;
   justify-content: space-evenly;
   width: 900px;
-  height: 60%;
+  height: 50%;
 }
 
 .title {
@@ -156,16 +160,6 @@ form,
   font-family: "Poppins", sans-serif;
 }
 
-.dashboard-summary {
-  background-color: #fff;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 80%;
-  height: 80%;
-}
-
 .dashboard-navbar {
   position: relative;
   top: 10%;
@@ -198,9 +192,69 @@ form,
 }
 
 .dashboard-navbar li:first-child {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-navbar li:hover {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#add-transaction-link {
+  color: green;
+}
+
+.dashboard-summary {
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  width: 80%;
+  height: 80%;
+  padding: 15px 30px;
+  gap: 32px;
+}
+
+.dashboard-summary > div:first-child {
+  width: 30%;
+}
+
+.dashboard-summary li {
+  list-style: none;
+}
+
+.dashboard-summary a {
+  text-decoration: none;
+  color: unset;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.transaction-details > div:first-child {
+  height: 40%;
+}
+
+.transaction-details > div:last-child {
+  height: 60%;
+}
+
+.transactions-container,
+.categories-container,
+.chart-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.transactions-container,
+.categories-container {
+  margin-top: 24px;
+}
+
+.transactions-container,
+.chart-container {
+  margin-bottom: 24px;
 }
