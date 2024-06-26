@@ -2,43 +2,32 @@
 
 <body class="parent-container">
   <div class="child-container sign-up">
-    <div class="content">
-      <div>
-        <img
-          src="/img/sign-up.png"
-          alt="An image representing user signing up"
+    <div class="signup-nav">
+      <h1 class="signup-title">Sign Up</h1>
+      <a href="/">Home</a>
+    </div>
+    <form action="/auth/sign-up" method="POST">
+      <div class="form-field">
+        <label for="username">Username:</label>
+        <small>required</small>
+        <input type="text" name="username" id="username" required />
+      </div>
+      <div class="form-field">
+        <label for="password">Password:</label>
+        <small>required</small>
+        <input type="password" name="password" id="password" required />
+      </div>
+      <div class="form-field">
+        <label for="confirmPassword">Confirm Password:</label>
+        <small>required</small>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          required
         />
       </div>
-
-      <div>
-        <div class="signup-nav">
-          <h1 class="signup-title">Sign Up</h1>
-          <a href="/">Home</a>
-        </div>
-        <form action="/auth/sign-up" method="POST">
-          <div class="form-field">
-            <label for="username">Username:</label>
-            <small>required</small>
-            <input type="text" name="username" id="username" required />
-          </div>
-          <div class="form-field">
-            <label for="password">Password:</label>
-            <small>required</small>
-            <input type="password" name="password" id="password" required />
-          </div>
-          <div class="form-field">
-            <label for="confirmPassword">Confirm Password:</label>
-            <small>required</small>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              required
-            />
-          </div>
-          <button id="signup-btn" type="submit">Sign up</button>
-        </form>
-      </div>
-    </div>
+      <button id="signup-btn" type="submit">Sign up</button>
+    </form>
   </div>
 </body>

@@ -30,11 +30,6 @@ button:focus {
   width: 900px;
   height: 60%;
 }
-.content {
-  display: flex;
-  align-items: center;
-  gap: 120px;
-}
 
 .title {
   font-size: 48px;
