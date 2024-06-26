@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transactions</title>
-  </head>
-  <body>
-    <%- include('../partials/_navbar.ejs') %>
-    <h1>Your Transactions</h1>
+<%- include('../partials/_base.ejs', {title: "Dashboard"}) %>
+
+<body class="dashboard-parent">
+  <!-- <%- include('../partials/_navbar.ejs') %> -->
+
+  <div class="dashboard-navbar">
+    <ul>
+      <li><i class="fa-solid fa-table"></i></li>
+      <li><i class="fa-solid fa-calendar"></i></li>
+      <li><i class="fa-solid fa-database"></i></li>
+      <li><i class="fa-solid fa-user"></i></li>
+      <li><i class="fa-solid fa-gear"></i></li>
+      <li>
+        <a href="/auth/sign-out"
+          ><i class="fa-solid fa-right-from-bracket"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dashboard-summary">
+    <h1>Dashboard</h1>
     <a href="/users/<%= user._id %>/transactions/new">Add Transaction</a>
     <ul>
       <% transactions.forEach((transaction) => { %>
       <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
-        <li>
-          <%= transaction.date %> | <%= transaction.amount %> | <%=
-          transaction.category %> | <%= transaction.note %>
-        </li>
+        <li><%= transaction.category %> | <%= transaction.amount %></li>
       </a>
       <% }) %>
     </ul>
-  </body>
-</html>
+  </div>
+</body>

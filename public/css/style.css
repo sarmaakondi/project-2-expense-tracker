@@ -28,7 +28,7 @@ button:focus {
   align-items: center;
   justify-content: space-evenly;
   width: 900px;
-  height: 65%;
+  height: 60%;
 }
 .content {
   display: flex;
@@ -104,7 +104,7 @@ form,
 
 .form-field input {
   font-family: inherit;
-  padding: 4px;
+  padding: 2px 8px;
   min-height: 36px;
 }
 
@@ -150,4 +150,62 @@ form,
 #signup-btn:active,
 #signin-btn:active {
   transform: scale(0.98);
+}
+
+/* Dashboard */
+.dashboard-parent {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f5;
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-summary {
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 80%;
+}
+
+.dashboard-navbar {
+  position: relative;
+  top: 10%;
+  width: 10%;
+  height: 80%;
+}
+
+.dashboard-navbar ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.dashboard-navbar li {
+  list-style: none;
+  padding: 4px 12px;
+  font-size: 24px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.dashboard-navbar li a {
+  color: rebeccapurple;
+}
+
+.dashboard-navbar li:last-child {
+  position: absolute;
+  bottom: 15%;
+}
+
+.dashboard-navbar li:first-child {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-navbar li:hover {
+  background-color: rgba(0, 0, 0, 0.15);
 }
