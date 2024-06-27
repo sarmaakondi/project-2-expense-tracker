@@ -39,7 +39,9 @@
           Date(transaction.date).toISOString().slice(0, 10) %>
           <!-- display date -->
           <% if (currentDate !== previousDate) { %>
-          <li class="transaction-date"><%= currentDate %></li>
+          <a href="/users/<%= user._id %>/transactions/date/<%= currentDate %>">
+            <li class="transaction-date"><%= currentDate %></li>
+          </a>
           <% previousDate = currentDate %> <% } %>
           <!-- display category and amount spend -->
           <div class="transaction-row">

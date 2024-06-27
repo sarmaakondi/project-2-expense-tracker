@@ -7,26 +7,39 @@
         <h1 class="show-title"><%= transaction.category[0].toUpperCase() +transaction.category.slice(1) %></h1>
       </div>
 
-      <div class="transactions-custom-list">
-        <ul>
-          <li>
-            <i class="fa-solid fa-wallet wallet-big"></i>
-            <%= new Date(transaction.date).toISOString().slice(0, 10) %>
-          </li>
-          <li>$<%= transaction.amount.toFixed(2) %></li>
-          <li><%= transaction.note.trim().substring(0, 20) %></li>
-          <li id="edit-transaction">
-            <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </a>
-          </li>
-          <form
-            action="/users/<%= user._id %>/transactions/<%= transaction._id %>?_method=DELETE"
-            method="post">
-            <button id="delete-transaction" type="submit"><i class="fa-solid fa-trash-can"></i></button>
-          </form>
-        </ul>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>Date</td>
+            <td>Amount</td>
+            <td>Note</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <i class="fa-solid fa-wallet wallet-big"></i>
+              <%= new Date(transaction.date).toISOString().slice(0, 10) %>
+            </td>
+            <td>$<%= transaction.amount.toFixed(2) %></td>
+            <td><%= transaction.note.trim().substring(0, 20) %></td>
+            <td>
+              <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </a>
+            </td>
+            <td>
+              <form action="/users/<%= user._id %>/transactions/<%= transaction._id %>?_method=DELETE" method="post">
+                <button id="delete-transaction" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </body>
-</html>
+
+  </html>

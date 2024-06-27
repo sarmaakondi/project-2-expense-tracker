@@ -51,6 +51,17 @@ router.get("/:transactionId", async (req, res) => {
   }
 });
 
+// Route to view all the transactions for the selected date
+router.get("/date/:date", async (req, res) => {
+  try {
+    const transactions = await Transaction.find({ date: req.params.date });
+    res.render("transactions/show-multiple.ejs", { transactions });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 // Route to handle delete transaction feature
 router.delete("/:transactionId", async (req, res) => {
   try {
