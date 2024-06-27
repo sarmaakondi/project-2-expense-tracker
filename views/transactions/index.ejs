@@ -1,4 +1,5 @@
 <%- include('../partials/_base.ejs', {title: "Dashboard"}) %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <body class="dashboard-parent">
   <div class="dashboard-navbar">
@@ -83,7 +84,73 @@
         </div>
       </div>
       <!-- Visualization -->
-      <div class="chart-container">Chart</div>
+      <div class="chart-container">
+        <canvas id="myPieChart" width="800" height="300"></canvas>
+      </div>
     </div>
   </div>
+
+  <!-- Script to create chart -->
+  <script>
+    const ctx = document.getElementById("myPieChart").getContext("2d");
+    const labels = [
+      "Groceries",
+      "Utilities",
+      "Entertainment",
+      "Clothing",
+      "Gifts",
+      "Misc",
+    ];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: " Total",
+          data: [100, 50, 70, 30, 20, 40],
+          backgroundColor: [
+            "#C2E0D0",
+            "#E0DEDE",
+            "#FFE0D5",
+            "#D3D3E0",
+            "#FCE4EC",
+            "#FFF5E0",
+          ],
+          hoverBackgroundColor: [
+            "#A2C9B2",
+            "#C7C1C1",
+            "#FFD2BD",
+            "#B3B3C6",
+            "#F8C0C8",
+            "#F0EBE0",
+          ],
+        },
+      ],
+    };
+
+    const plugin = {
+      beforeInit(chart) {
+        const origFit = chart.legend.fit;
+        chart.legend.fit = function fit() {
+          origFit.bind(chart.legend)();
+          this.height += 15;
+        };
+      },
+    };
+
+    const config = {
+      type: "pie",
+      data: data,
+      options: {
+        responsive: false,
+      },
+      plugins: [plugin],
+    };
+
+    const myPieChart = new Chart(ctx, config);
+
+    Chart.defaults.font = {
+      size: 14,
+      family: "Poppins, sans-serif",
+    };
+  </script>
 </body>

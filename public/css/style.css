@@ -347,8 +347,15 @@ form,
 
 .amount {
   margin-top: 25%;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 /* Chart */
+.chart-container {
+  display: flex;
+  align-items: center;
+}
+
+.chart-container {
+}
