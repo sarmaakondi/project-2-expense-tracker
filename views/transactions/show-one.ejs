@@ -24,7 +24,7 @@
               <%= new Date(transaction.date).toISOString().slice(0, 10) %>
             </td>
             <td>$<%= transaction.amount.toFixed(2) %></td>
-            <td><%= transaction.note.trim().substring(0, 20) %></td>
+            <td><%= transaction.note ? transaction.note.trim().substring(0, 20) : "" %></td>
             <td>
               <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit">
                 <i class="fa-solid fa-pen-to-square"></i>

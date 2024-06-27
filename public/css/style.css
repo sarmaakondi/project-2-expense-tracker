@@ -10,7 +10,7 @@ h1,
 h2,
 h3 {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 a:focus,
@@ -35,7 +35,7 @@ button:focus {
   align-items: center;
   justify-content: space-evenly;
   width: 900px;
-  height: 65%;
+  height: 70%;
 }
 
 .title {
@@ -64,7 +64,8 @@ nav {
   gap: 32px;
 }
 
-nav a {
+nav a,
+nav #goback-btn {
   cursor: pointer;
   text-decoration: none;
   background-color: slateblue;
@@ -77,8 +78,14 @@ nav a {
   transition: all 0.3s;
 }
 
-nav a:hover {
+nav a:hover,
+nav #goback-btn:hover {
   transform: scale(1.05);
+}
+
+nav #goback-btn {
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .sign-up,
@@ -101,6 +108,10 @@ nav a:hover {
 .edit-title,
 .show-title {
   font-weight: 500;
+}
+
+.show-title {
+  margin-bottom: 12px;
 }
 
 form {
@@ -303,7 +314,7 @@ form,
 }
 
 .categories-container {
-  margin-top: 64px;
+  margin-top: 52px;
 }
 
 .chart-container {
@@ -414,14 +425,15 @@ textarea {
   justify-content: center;
 }
 
-.custom-nav a {
+.custom-nav a,
+.custom-nav #goback-btn {
   width: 180px;
   text-align: center;
 }
 
-.custom-nav a:last-child {
+/* .custom-nav a:last-child {
   margin-left: 400px;
-}
+} */
 
 .transactions-custom-list {
   margin-top: 16px;
