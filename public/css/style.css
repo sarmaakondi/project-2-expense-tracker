@@ -82,14 +82,16 @@ nav a:hover {
 
 .sign-up,
 .sign-in,
-.add {
+.add,
+.edit {
   flex-direction: column;
   justify-content: center;
 }
 
 .signup-title,
 .signin-title,
-.add-title {
+.add-title,
+.edit-title {
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -141,7 +143,8 @@ form,
 
 #signup-btn,
 #signin-btn,
-#add-btn {
+#add-btn,
+#edit-btn {
   cursor: pointer;
   background-color: rgb(106, 90, 205);
   color: #fff;
@@ -156,7 +159,8 @@ form,
 
 #signup-btn:active,
 #signin-btn:active,
-#add-btn:active {
+#add-btn:active,
+#edit-btn:active {
   transform: scale(0.98);
 }
 
@@ -288,11 +292,16 @@ form,
   margin-right: 12px;
 }
 
-.transaction-row {
+.transaction-row a {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
   margin: 8px;
+  transition: all 0.3s;
+}
+
+.transaction-row a:hover {
+  transform: scale(1.03);
 }
 
 .transaction-date {

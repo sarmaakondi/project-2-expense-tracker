@@ -44,7 +44,7 @@ router.post("/", async (req, res) => {
 router.get("/:transactionId", async (req, res) => {
   try {
     const transaction = await Transaction.findById(req.params.transactionId);
-    res.render("transactions/show.ejs", { transaction });
+    res.render("transactions/show-one.ejs", { transaction });
   } catch (error) {
     console.log(error);
     res.redirect("/");

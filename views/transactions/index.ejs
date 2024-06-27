@@ -43,12 +43,16 @@
           <% previousDate = currentDate %> <% } %>
           <!-- display category and amount spend -->
           <div class="transaction-row">
-            <li>
-              <i class="fa-solid fa-wallet wallet"></i>
-              <%= transaction.category[0].toUpperCase() +
-              transaction.category.slice(1)%>
-            </li>
-            <li>$<%= transaction.amount.toFixed(2) %></li>
+            <a
+              href="/users/<%= user._id %>/transactions/<%= transaction._id %>"
+            >
+              <li>
+                <i class="fa-solid fa-wallet wallet"></i>
+                <%= transaction.category[0].toUpperCase() +
+                transaction.category.slice(1)%>
+              </li>
+              <li>$<%= transaction.amount.toFixed(2) %></li>
+            </a>
           </div>
           <% }) %>
         </ul>
