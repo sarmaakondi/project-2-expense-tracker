@@ -6,20 +6,14 @@
     <ul>
       <li><i class="fa-solid fa-table"></i></li>
       <li>
-        <a
-          id="add-transaction-link"
-          href="/users/<%= user._id %>/transactions/new"
-          ><i class="fa-solid fa-square-plus"></i
-        ></a>
+        <a id="add-transaction-link" href="/users/<%= user._id %>/transactions/new"><i class="fa-solid fa-square-plus"></i></a>
       </li>
       <li><i class="fa-solid fa-calendar"></i></li>
       <li><i class="fa-solid fa-database"></i></li>
       <li><i class="fa-solid fa-user"></i></li>
       <li><i class="fa-solid fa-gear"></i></li>
       <li>
-        <a href="/auth/sign-out"
-          ><i class="fa-solid fa-right-from-bracket"></i
-        ></a>
+        <a href="/auth/sign-out"><i class="fa-solid fa-right-from-bracket"></i></a>
       </li>
     </ul>
   </div>
@@ -45,9 +39,7 @@
           <% previousDate = currentDate %> <% } %>
           <!-- display category and amount spend -->
           <div class="transaction-row">
-            <a
-              href="/users/<%= user._id %>/transactions/<%= transaction._id %>"
-            >
+            <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
               <li>
                 <i class="fa-solid fa-wallet wallet"></i>
                 <%= transaction.category[0].toUpperCase() +
@@ -109,28 +101,26 @@
     ];
     const data = {
       labels: labels,
-      datasets: [
-        {
-          label: " Total",
-          data: [100, 50, 70, 30, 20, 40],
-          backgroundColor: [
-            "#C2E0D0",
-            "#E0DEDE",
-            "#FFE0D5",
-            "#D3D3E0",
-            "#FCE4EC",
-            "#FFF5E0",
-          ],
-          hoverBackgroundColor: [
-            "#A2C9B2",
-            "#C7C1C1",
-            "#FFD2BD",
-            "#B3B3C6",
-            "#F8C0C8",
-            "#F0EBE0",
-          ],
-        },
-      ],
+      datasets: [{
+        label: " Total",
+        data: [100, 50, 70, 30, 20, 40],
+        backgroundColor: [
+          "#C2E0D0",
+          "#E0DEDE",
+          "#FFE0D5",
+          "#D3D3E0",
+          "#FCE4EC",
+          "#FFF5E0",
+        ],
+        hoverBackgroundColor: [
+          "#A2C9B2",
+          "#C7C1C1",
+          "#FFD2BD",
+          "#B3B3C6",
+          "#F8C0C8",
+          "#F0EBE0",
+        ],
+      }, ],
     };
 
     const plugin = {

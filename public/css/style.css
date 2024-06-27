@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -320,6 +320,11 @@ form,
   font-size: 14px;
   color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.transaction-date:hover {
+  border-bottom: 1px solid rgba(102, 51, 153, 0.5);
 }
 
 .wallet {
@@ -459,8 +464,13 @@ table {
   text-align: center;
 }
 
+thead {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 table td {
-  padding: 4px 0;
+  padding: 6px 0;
 }
 
 table td {
@@ -485,4 +495,8 @@ table td:nth-child(4) {
 
 table td:nth-child(5) {
   width: 10%;
+}
+
+table a {
+  color: rebeccapurple;
 }

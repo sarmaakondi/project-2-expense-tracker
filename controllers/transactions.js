@@ -55,7 +55,10 @@ router.get("/:transactionId", async (req, res) => {
 router.get("/date/:date", async (req, res) => {
   try {
     const transactions = await Transaction.find({ date: req.params.date });
-    res.render("transactions/show-multiple.ejs", { transactions });
+    res.render("transactions/show-multiple.ejs", {
+      transactions,
+      date: req.params.date,
+    });
   } catch (error) {
     console.log(error);
     res.redirect("/");
