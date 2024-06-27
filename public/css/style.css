@@ -34,7 +34,7 @@ button:focus {
   align-items: center;
   justify-content: space-evenly;
   width: 900px;
-  height: 60%;
+  height: 65%;
 }
 
 .title {
@@ -88,10 +88,17 @@ nav a:hover {
   justify-content: center;
 }
 
+.show {
+  padding-top: 48px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .signup-title,
 .signin-title,
 .add-title,
-.edit-title {
+.edit-title,
+.show-title {
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -271,6 +278,8 @@ form,
   overflow-y: auto;
   margin-top: 18px;
   height: 85%;
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
 }
 
 .transactions-list h3 {
@@ -301,7 +310,7 @@ form,
 }
 
 .transaction-row a:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .transaction-date {
@@ -393,4 +402,45 @@ textarea {
 
 .custom-nav a:last-child {
   margin-left: 400px;
+}
+
+.transactions-custom-list {
+  margin-top: 16px;
+  width: 80%;
+}
+
+.transactions-custom-list a {
+  all: unset;
+}
+
+.show-title {
+  margin-top: 16px;
+}
+
+.transactions-custom-list ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.wallet-big {
+  font-size: 20px;
+  padding-right: 8px;
+  color: rgb(112, 111, 111);
+}
+
+#edit-transaction {
+  color: slateblue;
+}
+
+#delete-transaction {
+  color: red;
+  border: none;
+}
+
+#edit-transaction,
+#delete-transaction {
+  cursor: pointer;
+  font-size: 16px;
 }

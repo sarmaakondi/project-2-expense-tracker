@@ -1,4 +1,4 @@
-<%- include('../partials/_base.ejs', {title: "Sign Up"}) %>
+<%- include('../partials/_base.ejs', {title: "Edit Transaction"}) %>
 
   <body class="parent-container">
     <div class="child-container edit">
@@ -26,6 +26,7 @@
             id="amount"
             min="0"
             max="10000"
+            step="0.50"
             required
             value="<%= transaction.amount %>"
           />
@@ -46,7 +47,7 @@
 
         <div class="form-field">
           <label for="note">Note</label>
-          <textarea name="note" id="note" maxlength="200"><%= transaction.note %></textarea>
+          <textarea name="note" id="note" maxlength="200"><%= transaction.note.trim() %></textarea>
         </div>
 
         <button id="edit-btn" type="submit">Update</button>
