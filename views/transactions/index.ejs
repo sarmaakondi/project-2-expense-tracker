@@ -58,27 +58,28 @@
       <div class="categories-container">
         <div class="category groceries">
           <p>Groceries</p>
-          <p class="amount">$100.00</p>
+          <p class="amount">$<%= totals.groceries.toFixed(2) %></p>
         </div>
         <div class="category utilities">
           <p>Utilities</p>
-          <p class="amount">$100.00</p>
+          <p class="amount">$<%= totals.utilities.toFixed(2) %></p>
         </div>
         <div class="category entertainment">
           <p>Entertainment</p>
-          <p class="amount">$100.00</p>
+          <p class="amount">$<%= totals.entertainment.toFixed(2) %></p>
         </div>
         <div class="category clothing">
           <p>Clothing</p>
-          <p class="amount">$100.00</p>
+          <p class="amount">$<%= totals.clothing.toFixed(2) %></p>
         </div>
         <div class="category gifts">
           <p>Gifts</p>
-          <p class="amount">$100.00</p>
+          <p class="amount">$<%= totals.gifts.toFixed(2) %></p>
         </div>
         <div class="category misc">
           <p>Misc</p>
-          <p class="amount">$100.00</p>
+
+          <p class="amount">$<%= totals.misc.toFixed(2) %></p>
         </div>
       </div>
       <!-- Visualization -->
@@ -90,6 +91,8 @@
 
   <!-- Script to create chart -->
   <script>
+    var categorySum = <%- JSON.stringify(totals) %>;
+
     const ctx = document.getElementById("myPieChart").getContext("2d");
     const labels = [
       "Groceries",
@@ -103,7 +106,14 @@
       labels: labels,
       datasets: [{
         label: " Total",
-        data: [100, 50, 70, 30, 20, 40],
+        data: [
+          categorySum.groceries,
+          categorySum.utilities,
+          categorySum.entertainment,
+          categorySum.clothing,
+          categorySum.gifts,
+          categorySum.misc,
+        ],
         backgroundColor: [
           "#C2E0D0",
           "#E0DEDE",
@@ -120,6 +130,7 @@
           "#F8C0C8",
           "#F0EBE0",
         ],
+        hoverOffset: 15,
       }, ],
     };
 
@@ -138,6 +149,21 @@
       data: data,
       options: {
         responsive: false,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const value = context.raw;
+                return value.toFixed(2);
+              }
+            }
+          },
+          datalabels: {
+            formatter: function(value, context) {
+              return value.toFixed(2);
+            }
+          }
+        }
       },
       plugins: [plugin],
     };

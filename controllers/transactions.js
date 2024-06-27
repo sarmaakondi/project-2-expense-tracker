@@ -12,7 +12,21 @@ router.get("/", async (req, res) => {
     const allTransactions = await Transaction.find({
       createdBy: req.session.user._id,
     }).sort("-date");
-    res.render("transactions/index.ejs", { transactions: allTransactions });
+    // object to store the sum of the categories to display in the dashboard
+    const categorySum = {};
+    for (const transaction of allTransactions) {
+      const category = transaction["category"];
+      const amount = transaction["amount"];
+      if (category in categorySum) {
+        categorySum[category] += amount;
+      } else {
+        categorySum[category] = amount;
+      }
+    }
+    res.render("transactions/index.ejs", {
+      transactions: allTransactions,
+      totals: categorySum,
+    });
   } catch (error) {
     console.log(error);
     res.redirect("/");
