@@ -105,7 +105,7 @@
     const data = {
       labels: labels,
       datasets: [{
-        label: " Total",
+        label: "Total",
         data: [
           categorySum.groceries,
           categorySum.utilities,
@@ -153,8 +153,9 @@
           tooltip: {
             callbacks: {
               label: function(context) {
+                const label = context.dataset.label || '';
                 const value = context.raw;
-                return value.toFixed(2);
+                return ` ${label}: ${value.toFixed(2)}`;
               }
             }
           },
