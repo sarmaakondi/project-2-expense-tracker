@@ -4,13 +4,13 @@
   <div class="child-container show">
     <div class="custom-nav"><%- include('../partials/_navbar.ejs') %></div>
     <div class="show-nav">
-      <h1 class="show-title">Transactions on <%= date %></h1>
+      <h1 class="show-title">Transactions for <%= category[0].toUpperCase() + category.slice(1) %></h1>
     </div>
 
     <table>
       <thead>
         <tr>
-          <td>Category</td>
+          <td>Date</td>
           <td>Amount</td>
           <td>Note</td>
           <td>Edit</td>
@@ -20,9 +20,9 @@
       <tbody>
         <% transactions.forEach(transaction => { %>
         <tr>
-          <td class="td-category">
+          <td>
             <i class="fa-solid fa-wallet wallet-big"></i>
-            <%= transaction.category[0].toUpperCase() + transaction.category.slice(1) %>
+            <%= new Date(transaction.date).toISOString().slice(0, 10) %>
           </td>
           <td>$<%= transaction.amount.toFixed(2) %></td>
           <td><%= transaction.note ? transaction.note.trim().substring(0, 20) : "" %></td>

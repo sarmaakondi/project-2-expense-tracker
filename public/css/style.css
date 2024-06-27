@@ -533,3 +533,8 @@ table td:nth-child(5) {
 table a {
   color: rebeccapurple;
 }
+
+.td-category {
+  text-align: left;
+  padding-left: 40px;
+}

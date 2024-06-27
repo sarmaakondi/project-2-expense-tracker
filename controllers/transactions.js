@@ -68,10 +68,28 @@ router.get("/:transactionId", async (req, res) => {
 // Route to view all the transactions for the selected date
 router.get("/date/:date", async (req, res) => {
   try {
-    const transactions = await Transaction.find({ date: req.params.date });
+    const transactions = await Transaction.find({
+      date: req.params.date,
+    }).limit(8);
     res.render("transactions/show-multiple.ejs", {
       transactions,
       date: req.params.date,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
+// Route to view all the transactions for the selected category
+router.get("/category/:category", async (req, res) => {
+  try {
+    const transactions = await Transaction.find({
+      category: req.params.category,
+    }).limit(8);
+    res.render("transactions/show-category.ejs", {
+      transactions,
+      category: req.params.category,
     });
   } catch (error) {
     console.log(error);
