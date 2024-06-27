@@ -81,13 +81,15 @@ nav a:hover {
 }
 
 .sign-up,
-.sign-in {
+.sign-in,
+.add {
   flex-direction: column;
   justify-content: center;
 }
 
 .signup-title,
-.signin-title {
+.signin-title,
+.add-title {
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -103,7 +105,9 @@ form,
   min-width: 250px;
 }
 
-.form-field input {
+.form-field input,
+.form-field select,
+.form-field textarea {
   font-family: inherit;
   padding: 2px 8px;
   min-height: 36px;
@@ -115,7 +119,8 @@ form,
 }
 
 .signup-nav,
-.signin-nav {
+.signin-nav,
+.add-nav {
   display: flex;
   align-items: center;
   gap: 32px;
@@ -135,7 +140,8 @@ form,
 }
 
 #signup-btn,
-#signin-btn {
+#signin-btn,
+#add-btn {
   cursor: pointer;
   background-color: rgb(106, 90, 205);
   color: #fff;
@@ -149,7 +155,8 @@ form,
 }
 
 #signup-btn:active,
-#signin-btn:active {
+#signin-btn:active,
+#add-btn:active {
   transform: scale(0.98);
 }
 
@@ -357,5 +364,24 @@ form,
   align-items: center;
 }
 
-.chart-container {
+/* Rest */
+textarea {
+  height: 60px;
+}
+
+.custom-nav {
+  width: 90%;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-nav a {
+  width: 180px;
+  text-align: center;
+}
+
+.custom-nav a:last-child {
+  margin-left: 400px;
 }

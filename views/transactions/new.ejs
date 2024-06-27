@@ -1,46 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Transaction</title>
-  </head>
-  <body>
-    <%- include('../partials/_navbar.ejs') %>
-    <h1>Add New Transaction</h1>
-    <form action="/users/<%= user._id %>/transactions" method="post">
-      <!-- Date -->
-      <label for="date">Date</label>
-      <input type="date" name="date" id="date" required />
+<%- include('../partials/_base.ejs', {title: "Sign Up"}) %>
 
-      <!-- Amount -->
-      <label for="amount">Amount</label>
-      <input
-        type="number"
-        name="amount"
-        id="amount"
-        min="0"
-        max="10000"
-        required
-      />
+  <body class="parent-container">
+    <div class="child-container add">
+      <div class="custom-nav"><%- include('../partials/_navbar.ejs') %></div>
+      <div class="add-nav">
+        <h1 class="add-title">Add Transaction</h1>
+      </div>
+      <form action="/users/<%= user._id %>/transactions" method="post">
+        <div class="form-field">
+          <label for="date">Date</label>
+          <small>required</small>
+          <input type="date" name="date" id="date" required />
+        </div>
 
-      <!-- Category -->
-      <label for="category">Category</label>
-      <select name="category" id="category" required>
-        <option value="groceries">Groceries</option>
-        <option value="utilities">Utilities</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="clothing">Clothing</option>
-        <option value="gifts">Gifts</option>
-        <option value="misc">Misc</option>
-      </select>
+        <div class="form-field">
+          <label for="amount">Amount</label>
+          <small>required</small>
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            min="0"
+            max="1000"
+            step="0.50"
+            required
+          />
+        </div>
 
-      <!-- Note -->
-      <label for="note">Note</label>
-      <textarea name="note" id="note" maxlength="200"></textarea>
+        <div class="form-field">
+          <label for="category">Category</label>
+          <small>required</small>
+          <select name="category" id="category" required>
+            <option value="groceries">Groceries</option>
+            <option value="utilities">Utilities</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="clothing">Clothing</option>
+            <option value="gifts">Gifts</option>
+            <option value="misc">Misc</option>
+          </select>
+        </div>
 
-      <!-- Submit Button -->
-      <button type="submit">Add Transaction</button>
-    </form>
+        <div class="form-field">
+          <label for="note">Note</label>
+          <textarea name="note" id="note" maxlength="200"></textarea>
+        </div>
+        <button id="add-btn" type="submit">Add</button>
+      </form>
+    </div>
   </body>
 </html>

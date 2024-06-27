@@ -48,7 +48,7 @@
               <%= transaction.category[0].toUpperCase() +
               transaction.category.slice(1)%>
             </li>
-            <li>$<%= transaction.amount %></li>
+            <li>$<%= transaction.amount.toFixed(2) %></li>
           </div>
           <% }) %>
         </ul>

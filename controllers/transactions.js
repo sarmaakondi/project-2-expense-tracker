@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   try {
     const allTransactions = await Transaction.find({
       createdBy: req.session.user._id,
-    }).sort("date");
+    }).sort("-date");
     res.render("transactions/index.ejs", { transactions: allTransactions });
   } catch (error) {
     console.log(error);
