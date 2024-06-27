@@ -34,7 +34,7 @@ button:focus {
   align-items: center;
   justify-content: space-evenly;
   width: 900px;
-  height: 50%;
+  height: 60%;
 }
 
 .title {
@@ -302,3 +302,53 @@ form,
   color: rgb(112, 111, 111);
   font-size: 18px;
 }
+
+/* Categoreis */
+.categories-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category {
+  padding: 16px 8px;
+  margin: 16px 0;
+  border: none;
+  border-radius: 16px;
+  width: 15%;
+  height: 70%;
+  text-align: center;
+  font-size: 15px;
+}
+
+.groceries {
+  background-color: #c2e0d0;
+}
+
+.utilities {
+  background-color: #e0dede;
+}
+
+.entertainment {
+  background-color: #ffe0d5;
+}
+
+.clothing {
+  background-color: #d3d3e0;
+}
+
+.gifts {
+  background-color: #fce4ec;
+}
+
+.misc {
+  background-color: #fff5e0;
+}
+
+.amount {
+  margin-top: 25%;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Chart */
