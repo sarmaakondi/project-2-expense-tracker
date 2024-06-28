@@ -24,13 +24,14 @@
       <h1>Dashboard</h1>
       <div class="transactions-list">
         <h3>All Transactions</h3>
+        <% if (transactions.length > 0) { %>
         <ul>
           <% let previousDate = null %>
           <!-- loop through and display the required fields -->
           <% transactions.forEach((transaction) => { %>
           <!-- store the transaction date in readable format -->
           <% const currentDate = new
-          Date(transaction.date).toISOString().slice(0, 10) %>
+            Date(transaction.date).toISOString().slice(0, 10) %>
           <!-- display date -->
           <% if (currentDate !== previousDate) { %>
           <a href="/users/<%= user._id %>/transactions/date/<%= currentDate %>">
@@ -43,13 +44,14 @@
               <li>
                 <i class="fa-solid fa-wallet wallet"></i>
                 <%= transaction.category[0].toUpperCase() +
-                transaction.category.slice(1)%>
+                  transaction.category.slice(1)%>
               </li>
               <li>$<%= transaction.amount.toFixed(2) %></li>
             </a>
           </div>
           <% }) %>
         </ul>
+        <% } %>
       </div>
     </div>
 
@@ -59,37 +61,37 @@
         <a class="category groceries" href="/users/<%= user._id %>/transactions/category/groceries">
           <div>
             <p>Groceries</p>
-            <p class="amount">$<%= totals.groceries.toFixed(2) %></p>
+            <p class="amount">$<%= totals.groceries ? totals.groceries.toFixed(2) : "0.00" %></p>
           </div>
         </a>
         <a class="category utilities" href="/users/<%= user._id %>/transactions/category/utilities">
           <div>
             <p>Utilities</p>
-            <p class="amount">$<%= totals.utilities.toFixed(2) %></p>
+            <p class="amount">$<%= totals.utilities ? totals.utilities.toFixed(2) : "0.00" %></p>
           </div>
         </a>
         <a class="category entertainment" href="/users/<%= user._id %>/transactions/category/entertainment">
           <div>
             <p>Entertainment</p>
-            <p class="amount">$<%= totals.entertainment.toFixed(2) %></p>
+            <p class="amount">$<%= totals.entertainment ? totals.entertainment.toFixed(2) : "0.00" %></p>
           </div>
         </a>
         <a class="category clothing" href="/users/<%= user._id %>/transactions/category/clothing">
           <div>
             <p>Clothing</p>
-            <p class="amount">$<%= totals.clothing.toFixed(2) %></p>
+            <p class="amount">$<%= totals.clothing ? totals.clothing.toFixed(2) : "0.00" %></p>
           </div>
         </a>
         <a class="category gifts" href="/users/<%= user._id %>/transactions/category/gifts">
           <div>
             <p>Gifts</p>
-            <p class="amount">$<%= totals.gifts.toFixed(2) %></p>
+            <p class="amount">$<%= totals.gifts ? totals.gifts.toFixed(2) : "0.00" %></p>
           </div>
         </a>
         <a class="category misc" href="/users/<%= user._id %>/transactions/category/misc">
           <div>
             <p>Misc</p>
-            <p class="amount">$<%= totals.misc.toFixed(2) %></p>
+            <p class="amount">$<%= totals.misc ? totals.misc.toFixed(2) : "0.00" %></p>
           </div>
         </a>
       </div>

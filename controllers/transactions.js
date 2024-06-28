@@ -68,7 +68,9 @@ router.get("/:transactionId", async (req, res) => {
 // Route to view all the transactions for the selected date
 router.get("/date/:date", async (req, res) => {
   try {
+    const currentUser = await User.findById(req.session.user._id);
     const transactions = await Transaction.find({
+      createdBy: currentUser._id,
       date: req.params.date,
     }).limit(8);
     res.render("transactions/show-multiple.ejs", {
@@ -84,7 +86,9 @@ router.get("/date/:date", async (req, res) => {
 // Route to view all the transactions for the selected category
 router.get("/category/:category", async (req, res) => {
   try {
+    const currentUser = await User.findById(req.session.user._id);
     const transactions = await Transaction.find({
+      createdBy: currentUser._id,
       category: req.params.category,
     }).limit(8);
     res.render("transactions/show-category.ejs", {
