@@ -482,6 +482,13 @@ textarea {
   background: none;
 }
 
+.align-button-center {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #edit-transaction,
 #delete-transaction {
   cursor: pointer;
