@@ -12,6 +12,11 @@ const passUserToViews = require("./middleware/pass-user-to-views.js");
 const authController = require("./controllers/auth.js");
 const transactionsController = require("./controllers/transactions.js");
 
+// Security packages
+const cors = require("cors");
+const rateLimiter = require("express-rate-limit");
+const { xss } = require("express-xss-sanitizer");
+
 const port = process.env.PORT ? process.env.PORT : 3000;
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -20,8 +25,20 @@ mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
+// Middleware
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.set("trust proxy", 1);
+const limiter = rateLimiter({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+app.use(limiter); // Disable during development/testing to avoid rate limit
+app.use(express.json());
+app.use(cors());
+app.use(xss());
 app.use(methodOverride("_method"));
 app.use(
   session({
