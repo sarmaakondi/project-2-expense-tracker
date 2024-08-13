@@ -43,7 +43,7 @@ This is a personal expense tracker application built with Express.js, Node.js, M
 
 ## Demo
 
-https://node-expense-tracker-4be7d6b03456.herokuapp.com/
+https://expense-tracker-c7dg.onrender.com/
 
 ## Screenshots
 
