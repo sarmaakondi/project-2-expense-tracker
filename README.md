@@ -12,6 +12,15 @@ This is a personal expense tracker application built with Express.js, Node.js, M
 - Generate reports on spending trends (TODO)
 - Export data (TODO)
 
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- Express
+- EJS
+- MongoDB
+
 ## Installation
 
 1. Clone this repository:
